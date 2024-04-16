@@ -3,13 +3,41 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
+import Login from './auth/login';
+import Dashboard from './dashboard/page';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    //error element here
+  },
+  {
+    path:"/login",
+    element: <Login/>,
+    action: async ({request, params}) => {
+      const formData = await request.formData();
+      console.log(formData);
+      const email = formData.get("email");
+      const password = formData.get("password");
+      console.log(email, password);
+      //submit data to backend
+      return redirect("/dashboard")
+    }
+  },
+  {
+    path: "dashboard",
+    element: <Dashboard/>
+  }
+]);
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
