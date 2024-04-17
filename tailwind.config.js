@@ -23,6 +23,8 @@ module.exports = {
         "white-1": "#EEECEC",
         "white-2": "#FEFDFD",
         "white-3": "#F7F7F7",
+        "aqua-1": "#00be5e",
+        "aqua-2": "#f3fcf7",
         "red-1": "#CD1A1A",
         "red-2": "#F4D5D5",
         "red-3": "#E87C7C",

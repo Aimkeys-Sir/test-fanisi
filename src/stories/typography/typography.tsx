@@ -30,7 +30,7 @@ export default function Typography({
           ? "font-semibold lg:text-2xl"
           : variant === "xl"
           ? "font-semibold lg:text-4xl"
-          : "",
+          : variant=== "md"?"text-xl":"",
         className
       )}
     >
