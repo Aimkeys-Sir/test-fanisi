@@ -1,6 +1,14 @@
-# Getting Started with Create React App
+# Welcome to Test Fanisi
+### Set up project
+Run:
+### `npm install`
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Set up enviroment
+Create a `.env` file in the root of your project with.
+```py
+## the base url of your backend app
+REACT_APP_API_URL="http://localhost:4000"
+```
 
 ## Available Scripts
 
