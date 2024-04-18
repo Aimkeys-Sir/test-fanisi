@@ -13,12 +13,22 @@ export default function Users() {
   })
   const { user } = useUserContext()
   const [showCreate, setShowCreate] = useState(false)
+
   return (
     <div className="">
       <div className="flex flex-col gap-4 md:flex-row 2xl:p-8 xl:p-4 sm:p-4 justify-between md:items-center border-b-2 border-white-1">
         <div>
           {showCreate && (
-            <CreateModal setShow={(show) => setShowCreate(show)} />
+            <CreateModal
+              setShow={async (show) => {
+                setShowCreate(show)
+                const res = await fetch(
+                    `${process.env.REACT_APP_API_URL}/users`
+                  )
+                  const data = await res.json()
+                  setUsers(data)
+              }}
+            />
           )}
           <div className="flex items-center gap-4">
             <Typography variant="xl">Test.fanisi Users</Typography>

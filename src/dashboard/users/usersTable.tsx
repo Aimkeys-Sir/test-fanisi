@@ -126,7 +126,7 @@ export default function Table({
           </div>
         </Form>
       </div>
-      <div className="flex  p-4 relative  sm:w-[600px] md:w-auto  lg:w-auto">
+      <div className="flex  p-4   sm:w-[600px] md:w-auto  lg:w-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b-2">
@@ -169,6 +169,7 @@ export default function Table({
         </table>
       </div>
       <Pagination
+      className={(deleteUserId || editUserId) ? "":"sticky"}
         pages={users?.meta?.pageCount}
         current={page}
         handlePageChange={(selected) => setPage(selected + 1)}

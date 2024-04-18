@@ -8,6 +8,7 @@ import Login from "./auth/login"
 import DashboardLayout from "./dashboard/layout"
 import Users from "./dashboard/users/page"
 import SignUp from "./auth/signup"
+import Dashboard from "./dashboard/page"
 
 const api = process.env.REACT_APP_API_URL
 
@@ -52,9 +53,16 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
+        index: true,
+        element: <Dashboard />,},
+      {
         path: "users",
         element: <Users />,
       },
+      {
+        path: "tasks",
+        element: <Dashboard/>,
+      }
     ],
   },
 ])

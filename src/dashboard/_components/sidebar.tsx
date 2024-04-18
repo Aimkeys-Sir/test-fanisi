@@ -30,7 +30,7 @@ const links: {
   },
 ]
 
-export default function Sidebar({onClose}:{onClose?:()=>void}) {
+export default function Sidebar({ onClose }: { onClose?: () => void }) {
   const navigate = useNavigate()
   const { pathname } = useLocation()
   const active = pathname.split("/").filter((p) => !!p)[1] ?? "dashboard"
@@ -42,7 +42,10 @@ export default function Sidebar({onClose}:{onClose?:()=>void}) {
     <div className="flex flex-col relative h-screen left-0 top-0 w-full md:w-1/4 min-w-[300px] max-w-[400px] flex flex-col xl:p-8 md:lg:p-6 border-0 border-white-1 md:border-r-2">
       <div className="mt-4 pt-4 flex justify-between items-center">
         <img src={Logo} alt="" className="h-20 md:md-20" />
-        <IoClose onClick={onClose} className="cursor-pointer text-3xl text-black-2"/>
+        <IoClose
+          onClick={onClose}
+          className="cursor-pointer text-3xl text-black-2"
+        />
       </div>
       <div className="flex flex-col justify-between grow md:mb-4 md:mt-6  md:pt-4">
         <div className="absolute h-[2px] left-0 bg-white-1 w-full"></div>
@@ -50,7 +53,10 @@ export default function Sidebar({onClose}:{onClose?:()=>void}) {
           {links.map(({ name, path, Icon }) => (
             <Button
               key={name}
-              onClick={() => navigate(`/dashboard${path}`)}
+              onClick={() => {
+                navigate(`/dashboard${path}`)
+                onClose?.()
+              }}
               className={clsm(
                 "flex items-center gap-4 px-8 bg-transparent text-black-2 hover:bg-aqua-2",
                 active === name.toLowerCase()

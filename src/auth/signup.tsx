@@ -22,7 +22,7 @@ export default function SignUp() {
   return (
     <div className="flex justify-center bg-secondary md:p sm:p-4 2xl:p-20 border overflow-y-auto  h-screen font-sans-1">
       <div className=" flex shadow-lg overflow-hidden grow">
-        <div className=" relative grow focus-within:border-blue-1 flex flex-col justify-center  bg-white md:px-12 lg:pt-20">
+        <div className=" relative grow focus-within:border-blue-1 flex flex-col justify-center  bg-white p-8 md:px-12 lg:pt-20">
           <div className="flex justify-end pt-2 md:hidden">
             <img src={Logo} className="h-10" alt="" />
           </div>

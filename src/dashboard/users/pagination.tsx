@@ -1,18 +1,21 @@
 import { Typography } from "../../stories"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 import ReactPaginate from "react-paginate"
+import clsm from "../../lib/clsm"
 
 export default function Pagination({
   pages,
   current,
-  handlePageChange
+  handlePageChange,
+  className
 }: {
   pages: number
   current: number, 
+  className?:string
   handlePageChange: (selected:number) => void
 }) {
   return (
-    <div className="sticky bottom-0 left-0 flex 2xl:mt-8 sm:mt-4 justify-between items-center text-lg text-black-3 border-t-2 border-white-1 p-4">
+    <div className={clsm("bottom-0 left-0 flex 2xl:mt-8 sm:mt-4 justify-between items-center text-lg text-black-3 border-t-2 border-white-1 p-4", className)}>
       <ReactPaginate
         breakLabel="..."
         nextLabel={
